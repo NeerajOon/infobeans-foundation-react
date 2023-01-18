@@ -44,5 +44,5 @@ router.get('/verify-student/:id',verifyStudent);
 
 
 // //verify student
-// router.get('/admin_route/students/verify/:id',auth.isLogin,adminController.verifyStudent)
+// router.get('/admin_route/students/verify/:id',auth.isLogin,adminController.verifyStudent
 
