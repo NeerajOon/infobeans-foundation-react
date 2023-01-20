@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
 const gallerySchema = mongoose.Schema({
-    image:[],
+    image:{
+        type:String
+    },
     caption:{
         type:String,
     },

@@ -3,13 +3,14 @@ import multer from 'multer';
 import { galleryImageDelete, galleryImageUpload, galleryList, placementImageUpload, placementDelete, newsUpdate, newsDelete, deleteRegistration, verifyStudent, newsList, placementList} from '../controller/adminController.js';
 const router = express.Router();
 const galleryUpload = multer({dest:'public/images'});
-const placementUpload = multer({dest:'public/placement'})
+const placementUpload = multer({dest:'public/placement'});
+const newsUpload = multer({dest:'public/news'});
 
 //image list
 router.get('/gallery-list',galleryList)
 
 //image upload
-router.post('/gallery-upload',galleryUpload.array('gelleryImage'),galleryImageUpload);
+router.post('/gallery-upload',galleryUpload.single('galleryImage'),galleryImageUpload);
 
 //image delete 
 router.get('/gallery-delete/:id',galleryImageDelete);
@@ -28,7 +29,7 @@ router.get('/placement-delete/:id',placementDelete)
 router.get('/news-list',newsList);
 
 //news update
-router.post('/news-update',newsUpdate)
+router.post('/news-update',newsUpload.single('newsImage'),newsUpdate)
 
 //news delete
 router.get('/news-delete/:id',newsDelete);

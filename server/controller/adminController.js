@@ -18,9 +18,8 @@ export const galleryList = async (req,res,next)=>{
 export const galleryImageUpload = async (req,res,next)=>{
     try {
         const date = new Date();
-        let imageArray = req.files.map(file=>file.filename)
         let newImage = {
-            image:imageArray,
+            image:req.file.filename,
             caption:req.body.caption,
             category:req.body.category,
             dateOfUpload:date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
@@ -97,6 +96,9 @@ export const newsList = async (req,res,next)=>{
 //news Update
 export const newsUpdate=async (req,res)=>{
     try {
+        const date  = new Date();
+        req.body.image = req.file.filename;
+        req.body.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
         let result =await News.create(req.body);
         return res.status(200).json({status:true,result});
     } catch (error) {
