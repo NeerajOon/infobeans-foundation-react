@@ -29,7 +29,7 @@ router.get('/placement-delete/:id',placementDelete)
 router.get('/news-list',newsList);
 
 //news update
-router.post('/news-update',newsUpload.single('newsImage'),newsUpdate)
+router.post('/news-update',newsUpdate)
 
 //news delete
 router.get('/news-delete/:id',newsDelete);

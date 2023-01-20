@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 
 const newsSchema=mongoose.Schema({
-    image:{
-        type:String
-    },
     headline:{
         type:String,
         required: true

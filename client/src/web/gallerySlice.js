@@ -14,8 +14,8 @@ const slice=createSlice({
     initialState:{
         value:{
             gallerylist:[],
-            isLoading:false,
-            error:""
+            isGalleryLoading:false,
+            galleryError:""
 
         }
     },
@@ -26,15 +26,16 @@ const slice=createSlice({
     },
     extraReducers:(builder)=>{
         builder.addCase(fetchGallery.pending,(state,action)=>{
-            state.value.isLoading = true;
+            state.value.isGalleryLoading = true;
         })
         builder.addCase(fetchGallery.fulfilled,(state,action)=>{
-            state.value.isLoading = false;
+            state.value.isGalleryLoading = false;
             state.value.gallerylist = action.payload;
         })
         builder.addCase(fetchGallery.rejected,(state,action)=>{
-            state.value.isLoading = false;
+            state.value.isGalleryLoading = false;
             state.value.gallerylist = [];
+            state.value.galleryError = "Oops!.. something went wrong"
         })
     }
 })
