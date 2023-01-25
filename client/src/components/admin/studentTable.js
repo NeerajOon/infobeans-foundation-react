@@ -27,7 +27,7 @@ export const StudentTable=()=>{
                                     <td>Jhon Doe</td>
                                     <td>$123</td>
                                     <td>Paid</td>
-                                    <td><a className="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a className="btn1 btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox"/></td>
@@ -36,7 +36,7 @@ export const StudentTable=()=>{
                                     <td>Jhon Doe</td>
                                     <td>$123</td>
                                     <td>Paid</td>
-                                    <td><a className="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a className="btn1 btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox"/></td>
@@ -45,7 +45,7 @@ export const StudentTable=()=>{
                                     <td>Jhon Doe</td>
                                     <td>$123</td>
                                     <td>Paid</td>
-                                    <td><a className="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a className="btn1 btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox"/></td>
@@ -54,7 +54,7 @@ export const StudentTable=()=>{
                                     <td>Jhon Doe</td>
                                     <td>$123</td>
                                     <td>Paid</td>
-                                    <td><a className="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a className="btn1 btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox"/></td>
@@ -63,7 +63,7 @@ export const StudentTable=()=>{
                                     <td>Jhon Doe</td>
                                     <td>$123</td>
                                     <td>Paid</td>
-                                    <td><a className="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a className="btn1 btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
                             </tbody>
                         </table>
