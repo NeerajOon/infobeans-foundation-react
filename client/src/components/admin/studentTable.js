@@ -1,4 +1,4 @@
-export const StudentTable=()=>{
+export default function StudentTable(){
     return<>
      <div className="container-fluid pt-4 px-4">
                 <div className="bg-light text-center rounded p-4">

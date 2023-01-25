@@ -15,7 +15,7 @@ export default function Slider() {
                                         className="carousel-image img-fluid" alt="..."/>
 
                                     <div className="carousel-caption d-flex flex-column justify-content-end">
-                                        <h1>be a Kind Heart</h1>
+                                        <h1 className='text-white'>be a Kind Heart</h1>
 
                                         <p>Professional charity theme based on Bootstrap 5.2.2</p>
                                     </div>

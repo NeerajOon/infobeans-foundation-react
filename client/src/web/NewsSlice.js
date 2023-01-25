@@ -20,7 +20,8 @@ const slice = createSlice({
     },
     reducers:{
         updateNews:(state,action)=>{
-            state.value.newsList.push(action.payload)
+            state.value.newsList.pop();
+            state.value.newsList.unshift(action.payload)
         }
     },
     extraReducers:(builder)=>{

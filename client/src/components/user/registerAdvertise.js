@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function RegisterAdvertise() {
   return (
@@ -8,13 +9,13 @@ export default function RegisterAdvertise() {
                 <div className="row justify-content-center align-items-center">
 
                     <div className="col-lg-5 col-12 ms-auto">
-                        <h2 className="mb-0">Make an impact. <br/> Save lives.</h2>
+                        <h2 className="mb-0">Register yourself for ITEP</h2>
                     </div>
 
                     <div className="col-lg-5 col-12">
-                        <a href="#" className="me-4">Make a donation</a>
+                        <Link to="/about" className="me-4">Know more about us</Link>
 
-                        <a href="#section_4" className="custom-btn btn smoothscroll">Become a volunteer</a>
+                        <Link to="/register" className="custom-btn btn smoothscroll">Register Now</Link>
                     </div>
 
                 </div>

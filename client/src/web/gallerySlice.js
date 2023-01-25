@@ -13,7 +13,7 @@ const slice=createSlice({
     name:"gallery",
     initialState:{
         value:{
-            gallerylist:[],
+            galleryList:[],
             isGalleryLoading:false,
             galleryError:""
 
@@ -21,7 +21,7 @@ const slice=createSlice({
     },
     reducers:{
         updateGallery:(state,action)=>{
-            state.value.gallerylist.push(action.payload);
+            state.value.galleryList.unshift(action.payload);
         }
     },
     extraReducers:(builder)=>{
@@ -30,11 +30,11 @@ const slice=createSlice({
         })
         builder.addCase(fetchGallery.fulfilled,(state,action)=>{
             state.value.isGalleryLoading = false;
-            state.value.gallerylist = action.payload;
+            state.value.galleryList = action.payload;
         })
         builder.addCase(fetchGallery.rejected,(state,action)=>{
             state.value.isGalleryLoading = false;
-            state.value.gallerylist = [];
+            state.value.galleryList = [];
             state.value.galleryError = "Oops!.. something went wrong"
         })
     }

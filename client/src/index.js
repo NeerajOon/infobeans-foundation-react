@@ -16,14 +16,6 @@ root.render(
   </BrowserRouter>
 );
 
-const root1 = ReactDOM.createRoot(document.getElementById('root1'));
-root1.render(
-  <BrowserRouter>
-  <Provider store={store}>
-    <UserRoute/>
-  </Provider>
-  </BrowserRouter>
-);
 
 
 // If you want to start measuring performance in your app, pass a function

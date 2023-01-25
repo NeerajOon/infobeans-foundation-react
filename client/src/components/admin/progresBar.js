@@ -1,4 +1,4 @@
-export const Progress=()=>{
+export default function ProgressBar(){
 return<>
 <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">

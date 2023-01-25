@@ -42,6 +42,7 @@ export default function Navbar() {
                     </div> */}
                      <Link to="forms" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Updates Form</Link>
                      <Link to="message" className="nav-item nav-link"><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
+                     <Link to="/" className="nav-item nav-link"><i className="fa fa-tachometer-alt me-2"></i>Logout</Link>
                    
                     
                 </div>

@@ -8,7 +8,7 @@ export default function OurStory() {
                 <div className="row">
 
                     <div className="col-lg-10 col-12 text-center mx-auto">
-                        <h2 className="mb-5">Welcome to Kind Heart Charity</h2>
+                        <h2 className="mb-5">Welcome to Infobeans Foundation</h2>
                     </div>
 
                     <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
@@ -68,23 +68,21 @@ export default function OurStory() {
 
                     <div className="col-lg-6 col-12">
                         <div className="custom-text-box">
-                            <h2 className="mb-2">Our Story</h2>
+                            <h2 className="mb-2">Our Aim</h2>
 
-                            <h5 className="mb-3">Kind Heart Charity, Non-Profit Organization</h5>
+                            <h5 className="mb-3">Infobeans Foundation</h5>
 
-                            <p className="mb-0">This is a Bootstrap 5.2.2 CSS template for charity organization websites.
-                                You can feel free to use it. Please tell your friends about TemplateMo website. Thank
-                                you.</p>
+                            <p className="mb-0">The InfoBeans Foundation works towards taking forward those sections of society which have been left behind in areas of education and skill development. We cater to those sections of society which are not able to cope with mainstream education because of economic reasons or academic incapabilities. Along with basic computer literacy, we also provide advanced courses that can help in enhancing their careers. Our trainers are highly skilled and motivated. We provide training in an air-conditioned computer lab with genuine software and excellent hardware.</p>
                         </div>
 
                         <div className="row">
-                            <div className="col-lg-6 col-md-6 col-12">
+                            <div className="col-lg-12 col-md-12 col-12">
                                 <div className="custom-text-box mb-lg-0">
                                     <h5 className="mb-3">Our Mission</h5>
 
-                                    <p>Sed leo nisl, posuere at molestie ac, suscipit auctor quis metus</p>
+                                    <p>उन्नत राष्ट्र की कल्पना, कंप्यूटर साक्षरता घर घर पहुँचाना</p>
 
-                                    <ul className="custom-list mt-2">
+                                    {/* <ul className="custom-list mt-2">
                                         <li className="custom-list-item d-flex">
                                             <i className="bi-check custom-text-box-icon me-2"></i>
                                             Charity Theme
@@ -94,11 +92,11 @@ export default function OurStory() {
                                             <i className="bi-check custom-text-box-icon me-2"></i>
                                             Semantic HTML
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
 
-                            <div className="col-lg-6 col-md-6 col-12">
+                            {/* <div className="col-lg-6 col-md-6 col-12">
                                 <div className="custom-text-box d-flex flex-wrap d-lg-block mb-lg-0">
                                     <div className="counter-thumb">
                                         <div className="d-flex">
@@ -120,7 +118,7 @@ export default function OurStory() {
                                         <span className="counter-text">Donations</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

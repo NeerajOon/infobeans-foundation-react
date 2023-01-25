@@ -85,7 +85,7 @@ export const placementDelete = async (req,res,next)=>{
 //news list 
 export const newsList = async (req,res,next)=>{
     try {
-        let result = await News.find().sort({_id:-1});
+        let result = await News.find().sort({_id:-1}).limit(3);
         return res.status(200).json({status:true,result});
     } catch (error) {
         console.log(error);
@@ -100,7 +100,7 @@ export const newsUpdate=async (req,res)=>{
         const date  = new Date();
         req.body.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
         let result =await News.create(req.body);    
-        return res.status(200).json({status:true});
+        return res.status(200).json({status:true,result});
     } catch (error) {
         console.log(error);
         return res.status(500).json({status:false});
