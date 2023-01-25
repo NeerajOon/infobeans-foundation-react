@@ -4,6 +4,7 @@ import WebService from "../../web/webService";
 import webApi from "../../web/webApi";
 import { updateGallery } from "../../web/gallerySlice";
 import { toast, ToastContainer } from "react-toastify";
+import { updateNews } from "../../web/NewsSlice";
 export const Forms = () => {
   const dispatch = useDispatch();
   const [filename, setFilename] = useState("");
@@ -11,7 +12,11 @@ export const Forms = () => {
   const [caption, setCaption] = useState("");
   const [headline, setHeadline] = useState("");
   const [fullNews, setFullNews] = useState("");
-
+  const [placeFilename, setPlaceFilename] = useState("");
+  const [placeName,setPlaceName] = useState("");
+  const [placePosition,setPlacePosition] = useState("");
+  const [placeDescription,setPlaceDescription] = useState("");
+  
   // save gallery function
   const addGallery = async (e) => {
     e.preventDefault();
@@ -31,63 +36,81 @@ export const Forms = () => {
         console.log(error);
     }
   };
+  const addPlacement =async(e)=>{
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("placementImage",filename);
+    formData.set("placeName",placeName);
+    formData.set("placePosition",placePosition);
+    formData.set("placeDescription",placeDescription)
+
+    try {
+      let res = await WebService.postApi(webApi.ADD_PLACEMENT,formData);
+      if(res.data.status){
+        dispatch(updatePlacement(res.data.data));
+        toast.success("Image uploaded successfully")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const addNews = async (e) => {
     e.preventDefault();
-    console.log(headline);
-    console.log(fullNews);
-    let formData = new FormData();
-    formData.set("headline", headline);
-    formData.set("fullnews", fullNews);
-    console.log(formData);
+    // console.log(headline);
+    // console.log(fullNews);
+    let newNews = {
+      headline:headline,
+      fullnews:fullNews
+    }
 
-    // try {
-    //     let res = await WebService.postApi(webApi.ADD_NEWS, formData);
+    try {
+        let res = await WebService.postApi(webApi.ADD_NEWS, newNews);
   
-    //     if (res.data.status) {
-    //       dispatch(updateGallery(res.data.data));
-    //       toast.success("News uploaded successfully");
-    //     }
-    // } catch (error) {
-    //       toast.error("Oops!.. something went wrong");
-    //       console.log(error);
-    //   }
+        if (res.data.status) {
+          dispatch(updateGallery(res.data.data));
+          toast.success("News uploaded successfully");
+        }
+    } catch (error) {
+          toast.error("Oops!.. something went wrong");
+          console.log(error);
+      }
   };
   return (
     <>
       <ToastContainer />
-      <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
+      <div className="container-fluid pt-4 px-4">
+        <div className="row g-4">
           {/* Add gallery */}
-          <div class="col-sm-12 col-xl-6">
-            <div class="bg-light rounded h-100 p-4">
-              <h6 class="mb-4">Gallery Updates</h6>
+          <div className="col-sm-12 col-xl-6">
+            <div className="bg-light rounded h-100 p-4">
+              <h6 className="mb-4">Gallery Updates</h6>
               <form>
-                <div class="mb-3">
-                  <label for="formFile" class="form-label">
+                <div className="mb-3">
+                  {/* <label for="formFile" className="form-label">
                     Add Image
-                  </label>
+                  </label> */}
                   <input
-                    class="form-control"
+                    className="form-control"
                     onChange={(event) => setFilename(event.target.files[0])}
                     type="file"
                     id="formFile"
                   />
                 </div>
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     onChange={(e) => setCaption(e.target.value)}
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="floatingPassword"
                     placeholder="News Heading"
                   />
                   <label for="floatingPassword">Caption</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     onChange={(e) => setCategory(e.target.value)}
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="floatingPassword"
                     placeholder="News Heading"
                   />
@@ -96,7 +119,7 @@ export const Forms = () => {
                 <button
                   type="submit"
                   onClick={addGallery}
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                 >
                   upload
                 </button>
@@ -104,26 +127,26 @@ export const Forms = () => {
             </div>
           </div>
           {/* News Upload */}
-          <div class="col-sm-12 col-xl-6">
+          <div className="col-sm-12 col-xl-6">
             <form>
-              <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">News Updates</h6>
+              <div className="bg-light rounded h-100 p-4">
+                <h6 className="mb-4">News Updates</h6>
 
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
                     onChange={(e) => setHeadline(e.target.value)}
-                    class="form-control"
+                    className="form-control"
                     id="floatingPassword"
                     placeholder="News Heading"
                   />
                   <label for="floatingPassword">News Heading</label>
                 </div>
 
-                <div class="form-floating">
+                <div className="form-floating">
                   <textarea
                     onChange={(e) => setFullNews(e.target.value)}
-                    class="form-control"
+                    className="form-control"
                     placeholder="News Updates"
                     id="floatingTextarea"
                     style={{ height: "150px" }}
@@ -131,11 +154,67 @@ export const Forms = () => {
                   <label for="floatingTextarea">Full News</label>
                 </div>
               </div>
-              <button type="submit" onClick={addNews} class="btn btn-primary">
+              <button type="submit" onClick={addNews} className="btn btn-primary">
                 upload
               </button>
             </form>
           </div>
+          <div className="col-sm-12 col-xl-6">
+            <div className="bg-light rounded h-100 p-4">
+              <h6 className="mb-4">Placement Updates</h6>
+              <form>
+                <div className="mb-3">
+                  {/* <label for="formFile" className="form-label">
+                    Add Image
+                  </label> */}
+                  <input
+                    className="form-control"
+                    onChange={(event) => setPlaceFilename(event.target.files[0])}
+                    type="file"
+                    id="formFile"
+                  />
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    onChange={(e) => setPlaceName(e.target.value)}
+                    type="text"
+                    className="form-control"
+                    id="floatingPassword"
+                    placeholder="News Heading"
+                  />
+                  <label for="floatingPassword">Name</label>
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    onChange={(e) => setPlacePosition(e.target.value)}
+                    type="text"
+                    className="form-control"
+                    id="floatingPassword"
+                    placeholder="News Heading"
+                  />
+                  <label for="floatingPassword">Position</label>
+                </div>
+                <div className="form-floating">
+                  <textarea
+                    onChange={(e) => setPlaceDescription(e.target.value)}
+                    className="form-control"
+                    placeholder="Add Description"
+                    id="floatingTextarea"
+                    style={{ height: "150px" }}
+                  ></textarea>
+                  <label for="floatingTextarea">Description</label>
+                </div>
+                <button
+                  type="submit"
+                  onClick={addPlacement}
+                  className="btn btn-primary"
+                >
+                  upload
+                </button>
+              </form>
+            </div>
+          </div>
+          
         </div>
       </div>
     </>

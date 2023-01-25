@@ -97,9 +97,9 @@ export const newsList = async (req,res,next)=>{
 export const newsUpdate=async (req,res)=>{
     try {
         console.log(req.body);
-        // const date  = new Date();
-        // req.body.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
-        // let result =await News.create(req.body);
+        const date  = new Date();
+        req.body.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+        let result =await News.create(req.body);
         return res.status(200).json({status:true});
     } catch (error) {
         console.log(error);
@@ -135,6 +135,17 @@ export const verifyStudent = async (req,res,next)=>{
     try {
         await Registration.updateOne({_id:req.params.id},{$set:{is_verified:1}});
         return res.status(200).json({status:true});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({status:false});
+    }
+}
+
+//registration list
+export const registrationList = async (req,res,next)=>{
+    try {
+        let result = await Registration.find().sort({_id:-1});
+        return res.status(200).json({status:true,result});
     } catch (error) {
         console.log(error);
         return res.status(500).json({status:false});

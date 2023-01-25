@@ -1,8 +1,17 @@
 import React, { Component, useEffect } from 'react'
 import $ from 'jquery'; 
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { adminLogin, adminLogout } from '../../web/adminSlice';
 
 export default function Navbar() {
+  let navigate=useNavigate();
+  let dispatch=useDispatch();
+
+    function logout(){
+        dispatch(adminLogout());
+        navigate('/')
+    }
   
     const changeSideBar = ()=>{
         window.jQueryCode();
@@ -29,8 +38,10 @@ export default function Navbar() {
                 </div>
                 <div className="navbar-nav w-100">
 
-                <Link to="/admin" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Admin Home</Link>
-                     <Link to="studentTable" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
+                <Link to="/admin" className="nav-item nav-link text-start"><i className="fa fa-tachometer-alt me-2"></i>Admin Home</Link>
+                     <Link to="studentTable" className="nav-item nav-link  text-start"><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
+                     <Link to="forms" className="nav-item nav-link  text-start"><i className="fa fa-tachometer-alt me-2"></i>Updates Form</Link>
+                     <Link to="news" className="nav-item nav-link text-start"><i className="fa fa-tachometer-alt me-2"></i>News</Link>
                   
                     {/* <div className="nav-item dropdown">
                         <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa fa-laptop me-2"></i>Elements</Link>
@@ -40,14 +51,10 @@ export default function Navbar() {
                             <Link to="element.html" className="dropdown-item">Other Elements</Link>
                         </div>
                     </div> */}
-                     <Link to="forms" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Updates Form</Link>
-                     <Link to="message" className="nav-item nav-link"><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
-                   
-                    
                 </div>
             </nav>
         </div>
-        {/* <!-- Sidebar End --> */}
+        {/* <!-- =================================Sidebar End =============================================--> */}
 
         {/* <div className="content"> */}
         <nav className="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
@@ -132,7 +139,7 @@ export default function Navbar() {
                         <div className="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" className="dropdown-item">My Profile</a>
                             <a href="#" className="dropdown-item">Settings</a>
-                            <a href="#" className="dropdown-item">Log Out</a>
+                            <a href="#" className="dropdown-item" onClick={logout}>Log Out</a> 
                         </div>
                     </div>
                 </div>

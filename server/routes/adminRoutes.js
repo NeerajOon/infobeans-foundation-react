@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { galleryImageDelete, galleryImageUpload, galleryList, placementImageUpload, placementDelete, newsUpdate, newsDelete, deleteRegistration, verifyStudent, newsList, placementList} from '../controller/adminController.js';
+import { galleryImageDelete, galleryImageUpload, galleryList, placementImageUpload, placementDelete, newsUpdate, newsDelete, deleteRegistration, verifyStudent, newsList, placementList, registrationList} from '../controller/adminController.js';
 const router = express.Router();
 const galleryUpload = multer({dest:'public/images'});
 const placementUpload = multer({dest:'public/placement'});
@@ -40,6 +40,8 @@ router.get('/registration-delete/:id',deleteRegistration)
 //verify Student
 router.get('/verify-student/:id',verifyStudent);
 
+//registration list
+router.get('/registration-list',registrationList);
 
 
 

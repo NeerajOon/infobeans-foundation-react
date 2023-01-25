@@ -13,7 +13,7 @@ const registerSchema = mongoose.Schema({
     required: true,
   },
   dob: {
-    type: Date,
+    type: String,
     required: true,
   },
   gender: {
@@ -43,133 +43,118 @@ const registerSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  qualification10: {
-    board: {
-      type: String,
-      required: true,
-    },
-    school: {
-      type: String,
-      required: true,
-    },
-    pass: {
-      type: String,
-      required: true,
-    },
-    per: {
-      type: Number,
-      required: true,
-    },
-  },
-  qualification12: {
-    board: {
-      type: String,
-      required: true,
-    },
-    school: {
-      type: String,
-      required: true,
-    },
-    pass: {
-      type: String,
-      required: true,
-    },
-    per: {
-      type: Number,
-      required: true,
-    },
-  },
-  qualificationUG: {
-    university: {
-      type: String,
-      required: true,
-    },
-    college: {
-      type: String,
-      required: true,
-    },
-    pass: {
-      type: String,
-      required: true,
-    },
-    per: {
-      type: Number,
-      required: true,
-    },
-  },
-  qualificationPG: {
-    university: {
-      type: String,
-      required: true,
-    },
-    college: {
-      type: String,
-      required: true,
-    },
-    pass: {
-      type: String,
-      required: true,
-    },
-    per: {
-      type: Number,
-      required: true,
-    },
-  },
-  docs:[],
-  localaddress: {
+  board10: {
     type: String,
     required: true,
   },
-  localstate: {
+  school10: {
     type: String,
     required: true,
   },
-  localcity: {
+  pass10: {
     type: String,
     required: true,
   },
-  permanentaddress: {
-    type: String,
+  per10: {
+    type: Number,
     required: true,
   },
-  permanentstate: {
-    type: String,
-    required: true,
-  },
-  permanentcity: {
-    type: String,
-    required: true,
-  },
-  q1:{
-    type:String,
-    required:true
-  }
-  ,
-  q2:{
-    type:String,
-    required:true
-  }
-  ,
-  q3:{
-    type:String,
-    required:true
-  }
-  ,
-q4:{
-    type:String,
-    required:true
-  }
-  ,
-  q5:{
-    type:String,
-    required:true
-  },
-  is_varified:{
-    type:Number,
-    default:0
-}
 
+  board12: {
+    type: String,
+    required: true,
+  },
+  school12: {
+    type: String,
+    required: true,
+  },
+  pass12: {
+    type: String,
+    required: true,
+  },
+  per12: {
+    type: Number,
+    required: true,
+  },
 
+  universityUG: {
+    type: String,
+    required: true,
+  },
+  collegeUG: {
+    type: String,
+    required: true,
+  },
+  passUG: {
+    type: String,
+    required: true,
+  },
+  perUG: {
+    type: Number,
+    required: true,
+  },
+
+  universityPG: {
+    type: String,
+    // required: true,
+  },
+  collegePG: {
+    type: String,
+    // required: true,
+  },
+  passPG: {
+    type: String,
+    // required: true,
+  },
+  perPG: {
+    type: Number,
+    // required: true,
+  },
+  docs: [],
+  address: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  q1: {
+    type: String,
+    required: true,
+  },
+  q2: {
+    type: String,
+    required: true,
+  },
+  q3: {
+    type: String,
+    required: true,
+  },
+  q4: {
+    type: String,
+    required: true,
+  },
+  q5: {
+    type: String,
+    required: true,
+  },
+  isVerified: {
+    type: Number,
+    default: 0,
+  },
+  isVerifiedByAdmin: {
+    type: Number,
+    default: 0,
+  },
+  dateOfRegistration:{
+    type:String,
+    required:true
+  }
 });
-const Registration=new mongoose.model('Registration',registerSchema)
-export default Registration
+const Registration = new mongoose.model("Registration", registerSchema);
+export default Registration;
