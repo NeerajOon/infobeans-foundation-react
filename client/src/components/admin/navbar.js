@@ -1,9 +1,11 @@
 import React, { Component, useEffect } from 'react'
 import $ from 'jquery'; 
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Navbar() {
+  
     const changeSideBar = ()=>{
-        window.test();
+        window.jQueryCode();
     }
   return (
     <>
@@ -21,33 +23,27 @@ export default function Navbar() {
                         <div className="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div className="ms-3">
-                        <h6 className="mb-0">Admin </h6>
-                        <span>Admin</span>
+                        <h6 className="mb-0">Nitesh Bagora </h6>
+                      <span>Admin</span>
                     </div>
                 </div>
                 <div className="navbar-nav w-100">
-                    <a href="index.html" className="nav-item nav-link active"><i className="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div className="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa fa-laptop me-2"></i>Elements</a>
+
+                <Link to="/admin" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Admin Home</Link>
+                     <Link to="studentTable" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
+                  
+                    {/* <div className="nav-item dropdown">
+                        <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa fa-laptop me-2"></i>Elements</Link>
                         <div className="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" className="dropdown-item">Buttons</a>
-                            <a href="typography.html" className="dropdown-item">Typography</a>
-                            <a href="element.html" className="dropdown-item">Other Elements</a>
+                            <Link to="button.html" className="dropdown-item">Buttons</Link>
+                            <Link to="typography.html" className="dropdown-item">Typography</Link>
+                            <Link to="element.html" className="dropdown-item">Other Elements</Link>
                         </div>
-                    </div>
-                    <a href="widget.html" className="nav-item nav-link"><i className="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" className="nav-item nav-link"><i className="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" className="nav-item nav-link"><i className="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" className="nav-item nav-link"><i className="fa fa-chart-bar me-2"></i>Charts</a>
-                    <div className="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="far fa-file-alt me-2"></i>Pages</a>
-                        <div className="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" className="dropdown-item">Sign In</a>
-                            <a href="signup.html" className="dropdown-item">Sign Up</a>
-                            <a href="404.html" className="dropdown-item">404 Error</a>
-                            <a href="blank.html" className="dropdown-item">Blank Page</a>
-                        </div>
-                    </div>
+                    </div> */}
+                     <Link to="forms" className="nav-item nav-link "><i className="fa fa-tachometer-alt me-2"></i>Updates Form</Link>
+                     <Link to="message" className="nav-item nav-link"><i className="fa fa-tachometer-alt me-2"></i>Student Details</Link>
+                   
+                    
                 </div>
             </nav>
         </div>
@@ -95,7 +91,7 @@ export default function Navbar() {
                                 <div className="d-flex align-items-center">
                                     <img className="rounded-circle" src="img/user.jpg" alt="" style={{width: '40px', height: '40px'}}/>
                                     <div className="ms-2">
-                                        <h6 className="fw-normal mb-0">Jhon send you a message</h6>
+                                        <a className="fw-normal mb-0">Jhon send you a message</a>
                                         <small>15 minutes ago</small>
                                     </div>
                                 </div>
@@ -144,6 +140,8 @@ export default function Navbar() {
                 
         </nav>
         {/* </div> */}
+
+        <Outlet/>
 
     </>
 
